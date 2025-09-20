@@ -1,0 +1,11 @@
+# Idea specific files
+.idea/
+*.iml
+out/
+.vscode/
+
+# Qodo
+.qodo/
+
+# node_modules
+node_modules/

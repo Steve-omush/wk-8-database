@@ -1,0 +1,81 @@
+/* The whole page*/
+.App{
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Books container */
+.books {
+    display: flex;
+    gap: 16px;
+}
+
+/* Specific Book*/
+.book {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Contain the image cover of the each book*/
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-color: rgb(203, 238, 227);
+}
+
+/* Delete Button */
+.delete {
+    padding: 3px 6px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid rgb(245, 191, 191);
+    color: rgb(242, 100, 100);
+}
+
+
+/* Update Button */
+.update {
+    padding: 3px 6px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid rgb(204, 204, 243);
+    color: rgb(139, 139, 234);
+}
+
+/* The Form To Add or Update A Book" */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Inputs of the Form */
+input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid rgb(204, 204, 243);
+}
+
+/*Button on the Form */
+.formButton {
+    border: none;
+    padding: 10px;
+    background-color: rgb(182, 182, 246);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*Add New Book Button */
+.addNewBook {
+    margin: 20px;
+    padding: 10px;
+}
