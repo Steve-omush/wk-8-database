@@ -1,11 +1,13 @@
 import express from 'express';
 import mysql from 'mysql2';
 import cors from 'cors';
+import dotenv from "dotenv";
 
-require('dotenv').config();
 
 const app = express();
 
+//To be able to read .env file
+dotenv.config();
 
 
 const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
