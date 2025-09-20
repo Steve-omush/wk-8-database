@@ -10,7 +10,6 @@ const app = express();
 dotenv.config();
 
 
-//const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
 
 // Declare db outside so it's accessible globally
 let db;
@@ -135,4 +134,6 @@ app.patch("/updateBook/:id", async (req, res) => {
 });
 
 
-app.listen(8800, () => console.log(`Listening on 8800. Connected to backend wueh`));
+app.listen(process.env.PORT || 8800, () =>
+    console.log(`Listening on port ${process.env.PORT || 8800}. Connected to backend wueh ✅`)
+);
