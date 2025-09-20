@@ -10,12 +10,21 @@ const app = express();
 dotenv.config();
 
 
-const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
+//const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`;
 
 
 
 //Configurations to Connect to Backend Mysql Server
-const db = mysql.createConnection(dbUrl)
+const db = mysql.createConnection(process.env.MYSQL_PUBLIC_URL)
+
+
+db.connect(err => {
+    if (err) {
+        console.error("❌ Database connection failed:", err.stack);
+        return;
+    }
+    console.log("✅ Connected to database");
+});
 
 //Send Json File using a Client
 app.use(express.json());
