@@ -15,7 +15,13 @@ dotenv.config();
 
 
 //Configurations to Connect to Backend Mysql Server
-const db = mysql.createConnection(process.env.MYSQL_PUBLIC_URL)
+const db = mysql.createConnection({
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE || process.env.MYSQL_DATABASE || "",
+    port: Number(process.env.MYSQLPORT) // ✅ cast to number
+});
 
 
 db.connect(err => {
