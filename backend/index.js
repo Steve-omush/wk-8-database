@@ -15,17 +15,16 @@ dotenv.config();
 
 
 //Configurations to Connect to Backend Mysql Server
-const db = await mysql.createConnection(process.env.MYSQL_URL);
-
-
-db.connect(err => {
-    if (err) {
-        console.error("❌ Database connection failed:", err.stack);
-        return;
-    }
+try {
+    const db = await mysql.createConnection(process.env.MYSQL_URL);
     console.log("✅ Connected to database");
-});
 
+    // test a query
+    const [rows] = await db.query("SELECT NOW() AS now");
+    console.log("DB time:", rows[0].now);
+} catch (err) {
+    console.error("❌ Database connection failed:", err.message);
+}
 //Send Json File using a Client
 app.use(express.json());
 //Cors Library
