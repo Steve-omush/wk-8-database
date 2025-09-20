@@ -1,5 +1,5 @@
 import express from 'express';
-import mysql from 'mysql2';
+import mysql from "mysql2/promise";
 import cors from 'cors';
 import dotenv from "dotenv";
 
@@ -15,13 +15,7 @@ dotenv.config();
 
 
 //Configurations to Connect to Backend Mysql Server
-const db = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE || process.env.MYSQL_DATABASE || "",
-    port: Number(process.env.MYSQLPORT) // ✅ cast to number
-});
+const db = await mysql.createConnection(process.env.MYSQL_URL);
 
 
 db.connect(err => {
