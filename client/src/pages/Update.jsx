@@ -32,16 +32,21 @@ const Update = () => {
 
         // remove empty / null values
         const filteredInputs = Object.fromEntries(
-            Object.entries(inputs).filter(([_, v]) => v !== '' && v !== null && v !== " ")
+            Object.entries(inputs).filter(
+                ([_, v]) => v !== "" && v !== null && v !== " "
+            )
         );
 
         try {
-            await axios.patch(`http://localhost:8800/updateBook/${bookId}`, filteredInputs);
-            navigate("/")
-        }catch(err) {
+            await axios.patch(
+                `${process.env.REACT_APP_BACKEND_URL}/updateBook/${bookId}`,
+                filteredInputs
+            );
+            navigate("/");
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     return (
         <div className='form'>

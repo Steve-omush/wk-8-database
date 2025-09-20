@@ -25,12 +25,16 @@ const Add = () => {
     const handleClick = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8800/createNewBook", inputs)
-            navigate("/")
-        }catch(err) {
+            // ✅ use environment variable + endpoint
+            await axios.post(
+                `${process.env.REACT_APP_BACKEND_URL}/createNewBook`,
+                inputs
+            );
+            navigate("/");
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     return (
         <div className='form'>

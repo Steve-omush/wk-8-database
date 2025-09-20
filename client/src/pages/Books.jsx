@@ -8,26 +8,30 @@ const Books = () => {
 
     useEffect(() => {
         const fetchAllBooks = async () => {
-            try{
-                const res = await axios.get("http://localhost:8800/getAllBooks")
+            try {
+                const res = await axios.get(
+                    `${process.env.REACT_APP_BACKEND_URL}/getAllBooks`
+                );
                 setBooks(res.data);
                 console.log(res.data);
-            }catch(err){
+            } catch (err) {
                 console.log(err);
             }
-        }
+        };
         fetchAllBooks();
-    }, [])
+    }, []);
 
     //Handle the Delete Button
     const handleDelete = async (id) => {
-        try{
-            await axios.delete(`http://localhost:8800/deleteBooks/${id}`)
+        try {
+            await axios.delete(
+                `${process.env.REACT_APP_BACKEND_URL}/deleteBooks/${id}`
+            );
             window.location.reload();
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     return (
         <div>
