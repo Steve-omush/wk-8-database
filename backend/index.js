@@ -134,7 +134,7 @@ app.patch("/updateBook/:id", async (req, res) => {
 });
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8800;
 if (!PORT) {
   throw new Error("PORT environment variable not set");
 }
